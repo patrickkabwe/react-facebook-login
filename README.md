@@ -62,11 +62,11 @@ export default App;
 import { useFacebookLogin } from "@kazion/react-facebook-login";
 
 const App = () => {
-  const login = useFacebookLogin();
-
-  const handleResponse = (response) => {
-    console.log(response);
-  };
+  const login = useFacebookLogin({
+    onSuccess: (response) => {
+      console.log(response);
+    },
+  });
 
   return <button onClick={() => login()}>Login</button>;
 };
