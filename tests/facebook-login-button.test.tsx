@@ -108,7 +108,7 @@ describe("FacebookLoginButton", () => {
 
     const { getByTestId } = render(
       <FacebookProvider appId="1234" version="v19.0">
-        <FacebookLoginButton onSuccess={onSuccess} fetchUserProfile />
+        <FacebookLoginButton onSuccess={onSuccess} fetchUserProfile={true} />
       </FacebookProvider>
     );
     const button = getByTestId("facebook-login-button");
@@ -118,7 +118,7 @@ describe("FacebookLoginButton", () => {
     expect(onSuccess).toHaveBeenCalledWith({
       name: "name",
       email: "email",
-      profile: "profile",
+      picture: "picture",
     });
   });
 

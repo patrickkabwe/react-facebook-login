@@ -8,7 +8,7 @@ const FacebookLoginButton = forwardRef<HTMLButtonElement, FacebookLoginProps>(
       FB.login(async (response) => {
         if (response.authResponse) {
           if (props.fetchUserProfile) {
-            onSuccess((await getUserProfile()) as any);
+            getUserProfile(onSuccess as any);
             return;
           }
           onSuccess(response as any);

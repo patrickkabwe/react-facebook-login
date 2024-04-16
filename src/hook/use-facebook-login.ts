@@ -13,7 +13,7 @@ export const useFacebookLogin = ({
         if (response.authResponse) {
           if (rest.fetchUserProfile) {
             if (rest.fetchUserProfile) {
-              onSuccess((await getUserProfile()) as any);
+              getUserProfile(onSuccess as any);
               return;
             }
             onSuccess(response as any);
