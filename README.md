@@ -39,9 +39,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
 #### Login Button
 
 ```javascript
-import FacebookLogin, {
-  FacebookLoginProvider,
-} from "@kazion/react-facebook-login";
+import FacebookLogin from "@kazion/react-facebook-login";
 ```
 
 Then, you can use the `FacebookLogin` component in your application as follows:
