@@ -1,5 +1,6 @@
 import { useCallback } from "react";
 import { UseFacebookLoginOptions } from "../types/react-facebook-login";
+import { getUserProfile } from "../utils";
 
 export const useFacebookLogin = ({
   onSuccess,
@@ -8,17 +9,14 @@ export const useFacebookLogin = ({
 }: UseFacebookLoginOptions) => {
   const cb = useCallback(
     (opt?: fb.LoginOptions) => {
-      FB.login((response) => {
+      FB.login(async (response) => {
         if (response.authResponse) {
           if (rest.fetchUserProfile) {
-            // For params: check https://developers.facebook.com/docs/graph-api/reference/user
-            FB.api(
-              "/me",
-              { fields: ["name", "email", "profile" as any] },
-              (response) => {
-                onSuccess(response as any);
-              }
-            );
+            if (rest.fetchUserProfile) {
+              onSuccess((await getUserProfile()) as any);
+              return;
+            }
+            onSuccess(response as any);
             return;
           }
           onSuccess(response as any);
