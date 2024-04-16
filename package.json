@@ -15,7 +15,8 @@
     "test": "vitest",
     "build": "rimraf -rf dist && tsc -p tsconfig.json && tsup",
     "dev": "tsup --watch",
-    "prerelease": "npm run build"
+    "prerelease": "npm run build",
+    "audit:fix": "yarn-audit-fix --force"
   },
   "homepage": "https://github.com/patrickkabwe/react-facebook-login",
   "author": {
@@ -61,7 +62,8 @@
     "rollup": "^4.14.3",
     "tsup": "^8.0.2",
     "typescript": "^5.4.5",
-    "vitest": "^1.5.0"
+    "vitest": "^1.5.0",
+    "yarn-audit-fix": "^10.0.7"
   },
   "release": {
     "branches": [
