@@ -1,8 +1,8 @@
 diff --git a/index.d.ts b/index.d.ts
-index a02d7f870e02d64f3126d8fd02bf91599dac6146..bed69b2b218f90377505d3b8f8315a94c153ddb5 100644
+index a02d7f870e02d64f3126d8fd02bf91599dac6146..aad81c3e87f6955df1f76e4d24537b2d7964e24e 100644
 --- a/index.d.ts
 +++ b/index.d.ts
-@@ -3,547 +3,597 @@ declare function fbAsyncInit(): void;
+@@ -3,547 +3,546 @@ declare function fbAsyncInit(): void;
  import fb = facebook;
  declare var FB: fb.FacebookStatic;
  declare namespace facebook {
@@ -637,7 +637,7 @@ index a02d7f870e02d64f3126d8fd02bf91599dac6146..bed69b2b218f90377505d3b8f8315a94
 +    api<TParam extends UserField>(
 +      path: "/me",
 +      params: { fields: TParam[] },
-+      callback: (response: UserResponse<TParam>) => void
++      callback: (response: UserResponse) => void
 +    ): void;
 +    api<TParams extends object, TResponse>(
 +      path: string,
@@ -974,95 +974,44 @@ index a02d7f870e02d64f3126d8fd02bf91599dac6146..bed69b2b218f90377505d3b8f8315a94
 +  //  RESPONSES
 +  //
 +  ////////////////////////
-+  interface UserResponse<TParam extends any> {
++  interface UserResponse {
 +    id: number;
-+    about?: TParam extends "about" ? string : never | undefined | undefined;
-+    age_range?: TParam extends "age_range"
-+      ? AgeRange
-+      : never | undefined | undefined;
-+    birthday?: TParam extends "birthday"
-+      ? string
-+      : never | undefined | undefined;
-+    education?: TParam extends "education"
-+      ? EducationExperience[]
-+      : never | undefined | undefined;
-+    email?: TParam extends "email" ? string : never | undefined | undefined;
-+    favorite_athletes?: TParam extends "favorite_athletes"
-+      ? Experience[]
-+      : never | undefined | undefined;
-+    favorite_teams?: TParam extends "favorite_teams"
-+      ? Experience[]
-+      : never | undefined | undefined;
-+    first_name?: TParam extends "first_name"
-+      ? string
-+      : never | undefined | undefined;
-+    gender?: TParam extends "gender" ? string : never | undefined | undefined;
-+    hometown?: TParam extends "hometown" ? Page : never | undefined | undefined;
-+    inspirational_people?: TParam extends "inspirational_people"
-+      ? Experience[]
-+      : never | undefined | undefined;
-+    install_type?: TParam extends "install_type"
-+      ? any
-+      : never | undefined | undefined;
-+    is_guest_user?: TParam extends "is_guest_user"
-+      ? boolean
-+      : never | undefined | undefined;
-+    languages?: TParam extends "languages"
-+      ? Experience[]
-+      : never | undefined | undefined;
-+    last_name?: TParam extends "last_name"
-+      ? string
-+      : never | undefined | undefined;
-+    link?: TParam extends "link" ? string : never | undefined | undefined;
-+    location?: TParam extends "location" ? Page : never | undefined | undefined;
-+    meeting_for?: TParam extends "meeting_for"
-+      ? string[]
-+      : never | undefined | undefined;
-+    middle_name?: TParam extends "middle_name"
-+      ? string
-+      : never | undefined | undefined;
-+    name?: TParam extends "name" ? string : never | undefined | undefined;
-+    name_format?: TParam extends "name_format"
-+      ? string
-+      : never | undefined | undefined;
-+    payment_pricepoints?: TParam extends "payment_pricepoints"
-+      ? PaymentPricepoints
-+      : never | undefined | undefined;
-+    name_political?: TParam extends "political"
-+      ? string
-+      : never | undefined | undefined;
-+    profile_pic?: TParam extends "profile_pic"
-+      ? string
-+      : never | undefined | undefined;
-+    quotes?: TParam extends "quotes" ? string : never | undefined | undefined;
-+    relationship_status?: TParam extends "relationship_status"
-+      ? string
-+      : never | undefined | undefined;
-+    religion?: TParam extends "religion"
-+      ? string
-+      : never | undefined | undefined;
-+    shared_login_upgrade_required_by?: TParam extends "shared_login_upgrade_required_by"
-+      ? any
-+      : never | undefined | undefined;
-+    short_name?: TParam extends "short_name"
-+      ? any
-+      : never | undefined | undefined;
-+    significant_other?: TParam extends "significant_other"
-+      ? User
-+      : never | undefined | undefined;
-+    sports?: TParam extends "sports"
-+      ? Experience[]
-+      : never | undefined | undefined;
-+    supports_donate_button_in_live_video?: TParam extends "supports_donate_button_in_live_video"
-+      ? boolean
-+      : never | undefined | undefined;
-+    token_for_business?: TParam extends "token_for_business"
-+      ? VideoUploadLimits
-+      : never | undefined | undefined;
-+    video_upload_limits?: TParam extends "video_upload_limits"
-+      ? string
-+      : never | undefined | undefined;
-+    website?: TParam extends "website" ? string : never | undefined | undefined;
++    about?: string;
++    age_range?: AgeRange;
++    birthday?: string;
++    education?: EducationExperience;
++    picture?: string;
++    email?: string;
++    favorite_athletes?: Experience[];
++    favorite_teams?: Experience[];
++    first_name?: string;
++    gender?: string;
++    hometown?: string;
++    inspirational_people?: Experience[];
++    install_type?: string;
++    is_guest_user?: boolean;
++    languages?: Experience[];
++    last_name?: string;
++    link?: string;
++    location?: Page;
++    meeting_for?: string[];
++    middle_name?: string;
++    name?: string;
++    name_format?: string;
++    payment_pricepoints?: PaymentPricepoints;
++    name_political?: string;
++    profile_pic?: string;
++    quotes?: string;
++    relationship_status?: string;
++    religion?: string;
++    shared_login_upgrade_required_by?: any;
++    short_name?: string;
++    significant_other?: User;
++    sports?: Experience[];
++    supports_donate_button_in_live_video?: boolean;
++    token_for_business?: string;
++    video_upload_limits?: VideoUploadLimits;
++    website?: string;
 +  }
 +  interface AuthResponse {
 +    accessToken?: string | undefined;
