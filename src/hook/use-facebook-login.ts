@@ -9,7 +9,7 @@ export const useFacebookLogin = ({
 }: UseFacebookLoginOptions) => {
   const cb = useCallback(
     (opt?: fb.LoginOptions) => {
-      FB.login(async (response) => {
+      FB.login((response) => {
         if (response.authResponse) {
           if (rest.fetchUserProfile) {
             if (rest.fetchUserProfile) {

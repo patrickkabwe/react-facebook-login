@@ -3,11 +3,11 @@ import { FacebookLoginProps } from "../types/react-facebook-login";
 import { getUserProfile } from "../utils";
 
 const FacebookLoginButton = forwardRef<HTMLButtonElement, FacebookLoginProps>(
-  ({ onSuccess, onError, ...props }, ref) => {
+  ({ onSuccess, onError, fetchUserProfile, ...props }, ref) => {
     const handleLogin = useCallback(() => {
-      FB.login(async (response) => {
+      FB.login((response) => {
         if (response.authResponse) {
-          if (props.fetchUserProfile) {
+          if (fetchUserProfile) {
             getUserProfile(onSuccess as any);
             return;
           }
@@ -17,7 +17,7 @@ const FacebookLoginButton = forwardRef<HTMLButtonElement, FacebookLoginProps>(
           onError(response);
         }
       });
-    }, [onError, onSuccess, props.fetchUserProfile]);
+    }, [onError, onSuccess, fetchUserProfile]);
 
     return props.component ? (
       <props.component {...props} onClick={handleLogin} />
