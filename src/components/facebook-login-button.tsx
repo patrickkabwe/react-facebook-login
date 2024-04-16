@@ -22,7 +22,7 @@ const FacebookLoginButton = forwardRef<HTMLButtonElement, FacebookLoginProps>(
           onError(response);
         }
       });
-    }, []);
+    }, [onError, onSuccess, props.fetchUserProfile]);
 
     return props.component ? (
       <props.component onClick={handleLogin} {...props} />

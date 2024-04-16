@@ -6,27 +6,30 @@ export const useFacebookLogin = ({
   onError,
   ...rest
 }: UseFacebookLoginOptions) => {
-  const cb = useCallback((opt?: fb.LoginOptions) => {
-    FB.login((response) => {
-      if (response.authResponse) {
-        if (rest.fetchUserProfile) {
-          // For params: check https://developers.facebook.com/docs/graph-api/reference/user
-          FB.api(
-            "/me",
-            { fields: ["name", "email", "profile" as any] },
-            (response) => {
-              onSuccess(response as any);
-            }
-          );
-          return;
+  const cb = useCallback(
+    (opt?: fb.LoginOptions) => {
+      FB.login((response) => {
+        if (response.authResponse) {
+          if (rest.fetchUserProfile) {
+            // For params: check https://developers.facebook.com/docs/graph-api/reference/user
+            FB.api(
+              "/me",
+              { fields: ["name", "email", "profile" as any] },
+              (response) => {
+                onSuccess(response as any);
+              }
+            );
+            return;
+          }
+          onSuccess(response as any);
         }
-        onSuccess(response as any);
-      }
-      if (onError) {
-        onError(response);
-      }
-    }, opt);
-  }, []);
+        if (onError) {
+          onError(response);
+        }
+      }, opt);
+    },
+    [onError, onSuccess, rest.fetchUserProfile]
+  );
 
   return cb;
 };
