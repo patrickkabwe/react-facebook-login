@@ -10,6 +10,9 @@ patchedDependencies:
     path: patches/@types__facebook-js-sdk@3.3.10.patch
 
 dependencies:
+  '@types/facebook-js-sdk':
+    specifier: ^3.3.10
+    version: 3.3.10(patch_hash=7zfd2do72etc57facpxcnsp5fa)
   react:
     specifier: '>=16.8.0'
     version: 18.2.0
@@ -27,9 +30,6 @@ devDependencies:
   '@testing-library/react':
     specifier: ^15.0.2
     version: 15.0.2(react-dom@18.2.0)(react@18.2.0)
-  '@types/facebook-js-sdk':
-    specifier: ^3.3.10
-    version: 3.3.10(patch_hash=7zfd2do72etc57facpxcnsp5fa)
   '@types/react':
     specifier: ^18.2.78
     version: 18.2.78
@@ -1268,7 +1268,7 @@ packages:
 
   /@types/facebook-js-sdk@3.3.10(patch_hash=7zfd2do72etc57facpxcnsp5fa):
     resolution: {integrity: sha512-85YWoOkYD1N8yCKRjxcjaroK73UnE3pIEG6zPRIPrb8D4HFceqNp60EQ7SZlu7vHpWGD+yCRumBH606vRUuMLw==}
-    dev: true
+    dev: false
     patched: true
 
   /@types/fs-extra@11.0.4:

@@ -50,11 +50,13 @@
     "facebook-oAuth2",
     "facebook-oAuth"
   ],
+  "dependencies": {
+    "@types/facebook-js-sdk": "^3.3.10"
+  },
   "devDependencies": {
     "@semantic-release/git": "^10.0.1",
     "@testing-library/jest-dom": "^6.4.2",
     "@testing-library/react": "^15.0.2",
-    "@types/facebook-js-sdk": "^3.3.10",
     "@types/react": "^18.2.78",
     "@vitejs/plugin-react": "^4.2.1",
     "jsdom": "^24.0.0",
