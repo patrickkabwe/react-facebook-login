@@ -7,7 +7,7 @@ This is a React package that provides a simple way to add Facebook login to your
 To install this package, run the following command in your terminal:
 
 ```bash
-npm install @kazion/react-facebook-login
+pnpm install @kazion/react-facebook-login
 ```
 
 ### Usage
@@ -79,7 +79,7 @@ export default App;
 To run the tests for this package, use the following command:
 
 ```bash
-npm test
+pnpm test
 ```
 
 ### Contributing
