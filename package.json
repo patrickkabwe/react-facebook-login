@@ -91,5 +91,10 @@
       "@semantic-release/github",
       "@semantic-release/npm"
     ]
+  },
+  "pnpm": {
+    "patchedDependencies": {
+      "@types/facebook-js-sdk@3.3.10": "patches/@types__facebook-js-sdk@3.3.10.patch"
+    }
   }
 }

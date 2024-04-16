@@ -4,6 +4,11 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+patchedDependencies:
+  '@types/facebook-js-sdk@3.3.10':
+    hash: 3l7ahogwkfpxixudbc5rogmrdi
+    path: patches/@types__facebook-js-sdk@3.3.10.patch
+
 dependencies:
   react:
     specifier: '>=16.8.0'
@@ -24,7 +29,7 @@ devDependencies:
     version: 15.0.2(react-dom@18.2.0)(react@18.2.0)
   '@types/facebook-js-sdk':
     specifier: ^3.3.10
-    version: 3.3.10
+    version: 3.3.10(patch_hash=3l7ahogwkfpxixudbc5rogmrdi)
   '@types/react':
     specifier: ^18.2.78
     version: 18.2.78
@@ -1261,9 +1266,10 @@ packages:
     resolution: {integrity: sha512-/kYRxGDLWzHOB7q+wtSUQlFrtcdUccpfy+X+9iMBpHK8QLLhx2wIPYuS5DYtR9Wa/YlZAbIovy7qVdB1Aq6Lyw==}
     dev: true
 
-  /@types/facebook-js-sdk@3.3.10:
+  /@types/facebook-js-sdk@3.3.10(patch_hash=3l7ahogwkfpxixudbc5rogmrdi):
     resolution: {integrity: sha512-85YWoOkYD1N8yCKRjxcjaroK73UnE3pIEG6zPRIPrb8D4HFceqNp60EQ7SZlu7vHpWGD+yCRumBH606vRUuMLw==}
     dev: true
+    patched: true
 
   /@types/fs-extra@11.0.4:
     resolution: {integrity: sha512-yTbItCNreRooED33qjunPthRcSjERP1r4MqCZc7wv0u2sUkzTFp45tgUfS5+r7FrZPdmCCNflLhVSP/o+SemsQ==}
