@@ -16,7 +16,7 @@
     "build": "rimraf -rf dist && tsc -p tsconfig.json && tsup",
     "dev": "tsup --watch",
     "prerelease": "npm run build",
-    "audit:fix": "yarn-audit-fix --force"
+    "audit:fix": "pnpm audit signatures --fix"
   },
   "homepage": "https://github.com/patrickkabwe/react-facebook-login",
   "author": {
@@ -64,8 +64,7 @@
     "rollup": "^4.14.3",
     "tsup": "^8.0.2",
     "typescript": "^5.4.5",
-    "vitest": "^1.5.0",
-    "yarn-audit-fix": "^10.0.7"
+    "vitest": "^1.5.0"
   },
   "release": {
     "branches": [
@@ -97,6 +96,10 @@
   "pnpm": {
     "patchedDependencies": {
       "@types/facebook-js-sdk@3.3.10": "patches/@types__facebook-js-sdk@3.3.10.patch"
+    },
+    "overrides": {
+      "braces@<3.0.3": ">=3.0.3",
+      "ws@>=8.0.0 <8.17.1": ">=8.17.1"
     }
   }
 }
