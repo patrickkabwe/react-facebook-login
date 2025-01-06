@@ -1,15 +1,18 @@
 import { renderHook } from "@testing-library/react";
-import { afterAll, describe, expect, it, vi } from "vitest";
+import { afterAll, beforeEach, describe, expect, it, vi } from "vitest";
 import { useFacebookLogin } from "../src";
 
-window.FB = {
-  init: vi.fn(),
-  login: vi.fn().mockImplementation((cb) => {
-    cb({ authResponse: { accessToken: "test" } });
-  }),
-} as any;
-
 describe("useFacebookLogin", () => {
+  beforeEach(() => {
+    beforeEach(() => {
+      window.FB = {
+        init: vi.fn(),
+        login: vi.fn().mockImplementation((cb) => {
+          cb({ authResponse: { accessToken: "test" } });
+        }),
+      } as any;
+    });
+  });
   afterAll(() => {
     //  @ts-ignore
     delete window.FB;
@@ -48,7 +51,8 @@ describe("useFacebookLogin", () => {
       useFacebookLogin({ onSuccess: () => {}, onError })
     );
     const cb = result.current;
-    FB.login = vi.fn().mockImplementation((cb) => {
+
+    window.FB.login = vi.fn().mockImplementation((cb) => {
       cb({ authResponse: null });
     });
     cb();
