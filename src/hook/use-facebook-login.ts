@@ -12,9 +12,11 @@ export const useFacebookLogin = ({
       window.FB.login((response) => {
         if (response.authResponse) {
           if (rest.shouldFetchUserProfile) {
-            getUserProfile(onSuccess);
+            getUserProfile((userResponse: fb.UserResponse) => {
+              (onSuccess as (response: fb.UserResponse) => void)(userResponse);
+            });
           } else {
-            onSuccess(response);
+            (onSuccess as (response: fb.StatusResponse) => void)(response);
           }
         } else {
           if (onError && response.status !== "connected") {
