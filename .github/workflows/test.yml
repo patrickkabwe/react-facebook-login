@@ -53,7 +53,7 @@ jobs:
         run: bun run build
       
       - name: Run tests
-        run: bun test
+        run: bun run test
 
   # separate job to set as required in branch protection,
   # as the build names above change each time Node versions change
