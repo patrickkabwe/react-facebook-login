@@ -51,7 +51,7 @@
     "facebook-oAuth"
   ],
   "dependencies": {
-    "@types/facebook-js-sdk": "^3.3.10"
+    "@types/facebook-js-sdk": "^3.3.12"
   },
   "devDependencies": {
     "@semantic-release/git": "^10.0.1",
@@ -93,13 +93,7 @@
       "@semantic-release/npm"
     ]
   },
-  "pnpm": {
-    "patchedDependencies": {
-      "@types/facebook-js-sdk@3.3.10": "patches/@types__facebook-js-sdk@3.3.10.patch"
-    },
-    "overrides": {
-      "braces@<3.0.3": ">=3.0.3",
-      "ws@>=8.0.0 <8.17.1": ">=8.17.1"
-    }
+  "patchedDependencies": {
+    "@types/facebook-js-sdk@3.3.12": "patches/@types%2Ffacebook-js-sdk@3.3.12.patch"
   }
 }

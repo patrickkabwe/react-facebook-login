@@ -1,15 +1,16 @@
-export interface FacebookLoginWithUserProfile {
-  fetchUserProfile?: true;
+interface BaseFacebookLoginOptions {
   scopes?: fb.UserField[];
-  onSuccess: (response: fb.UserResponse) => void;
   onError?: (response: fb.StatusResponse) => void;
 }
 
-export interface FacebookLoginWithoutUserProfile {
-  fetchUserProfile?: false;
-  scopes?: fb.UserField[];
+export interface FacebookLoginWithUserProfile extends BaseFacebookLoginOptions {
+  shouldFetchUserProfile?: true;
+  onSuccess: (response: fb.UserResponse) => void;
+}
+
+export interface FacebookLoginWithoutUserProfile extends BaseFacebookLoginOptions {
+  shouldFetchUserProfile?: false;
   onSuccess: (response: fb.StatusResponse) => void;
-  onError?: (response: fb.StatusResponse) => void;
 }
 
 export type UseFacebookLoginOptions =

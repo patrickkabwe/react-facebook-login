@@ -9,24 +9,23 @@ export const useFacebookLogin = ({
 }: UseFacebookLoginOptions) => {
   const cb = useCallback(
     (opt?: fb.LoginOptions) => {
-      FB.login((response) => {
+      window.FB.login((response) => {
         if (response.authResponse) {
-          if (rest.fetchUserProfile) {
-            if (rest.fetchUserProfile) {
-              getUserProfile(onSuccess as any);
-              return;
-            }
-            onSuccess(response as any);
-            return;
+          if (rest.shouldFetchUserProfile) {
+            getUserProfile((userResponse: fb.UserResponse) => {
+              (onSuccess as (response: fb.UserResponse) => void)(userResponse);
+            });
+          } else {
+            (onSuccess as (response: fb.StatusResponse) => void)(response);
           }
-          onSuccess(response as any);
-        }
-        if (onError) {
-          onError(response);
+        } else {
+          if (onError && response.status !== "connected") {
+            onError(response);
+          }
         }
       }, opt);
     },
-    [onError, onSuccess, rest.fetchUserProfile]
+    [onError, onSuccess, rest.shouldFetchUserProfile]
   );
 
   return cb;
