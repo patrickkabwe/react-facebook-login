@@ -6,7 +6,7 @@ This is a React package that provides a simple way to add Facebook login to your
 [![Coverage](https://github.com/patrickkabwe/react-facebook-login/actions/workflows/test.yml/badge.svg)](https://github.com/patrickkabwe/react-facebook-login/actions/workflows/test.yml)
 <br>
 [![mit licence](https://img.shields.io/dub/l/vibe-d.svg?style=for-the-badge)](https://github.com/patrickkabwe/react-facebook-login/blob/main/LICENSE)
-[![npm version](https://img.shields.io/npm/v/@kazion/react-facebook-login?style=for-the-badge)](https://www.npmjs.org/package/@swan-io/react-native-browser)
+[![npm version](https://img.shields.io/npm/v/@kazion/react-facebook-login?style=for-the-badge)](https://www.npmjs.com/package/@kazion/react-facebook-login)
 
 ### Installation
 
