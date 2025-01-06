@@ -59,7 +59,7 @@
     "@testing-library/react": "^16.0.0",
     "@types/react": "^18.2.78",
     "@vitejs/plugin-react": "^4.2.1",
-    "jsdom": "^24.0.0",
+    "jsdom": "^25.0.0",
     "rimraf": "^5.0.5",
     "rollup": "^4.14.3",
     "tsup": "^8.0.2",
