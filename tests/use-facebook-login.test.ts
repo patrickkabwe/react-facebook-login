@@ -1,13 +1,13 @@
 import { renderHook } from "@testing-library/react";
-import { afterAll, beforeEach, describe, expect, it, vi } from "vitest";
+import { afterAll, beforeEach, describe, expect, it,jest } from "bun:test";
 import { useFacebookLogin } from "../src";
 
 describe("useFacebookLogin", () => {
   beforeEach(() => {
     beforeEach(() => {
       window.FB = {
-        init: vi.fn(),
-        login: vi.fn().mockImplementation((cb) => {
+        init: jest.fn(),
+        login: jest.fn().mockImplementation((cb) => {
           cb({ authResponse: { accessToken: "test" } });
         }),
       } as any;
@@ -35,7 +35,7 @@ describe("useFacebookLogin", () => {
   });
 
   it("should call success callback", () => {
-    const onSuccess = vi.fn();
+    const onSuccess = jest.fn();
     const { result } = renderHook(() => useFacebookLogin({ onSuccess }));
     const cb = result.current;
     cb();
@@ -46,13 +46,13 @@ describe("useFacebookLogin", () => {
   });
 
   it("should call error callback", () => {
-    const onError = vi.fn();
+    const onError = jest.fn();
     const { result } = renderHook(() =>
       useFacebookLogin({ onSuccess: () => {}, onError })
     );
     const cb = result.current;
 
-    window.FB.login = vi.fn().mockImplementation((cb) => {
+    window.FB.login = jest.fn().mockImplementation((cb) => {
       cb({ authResponse: null });
     });
     cb();

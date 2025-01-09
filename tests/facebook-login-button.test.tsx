@@ -1,7 +1,7 @@
 import { act, fireEvent, render } from "@testing-library/react";
 import { JSDOM } from "jsdom";
 import React from "react";
-import { beforeEach, describe, expect, it, vi } from "vitest";
+import { beforeEach, describe, expect, it, jest } from "bun:test";
 import FacebookLoginButton, { FacebookProvider } from "../src";
 
 const TestApp = () => {
@@ -13,9 +13,9 @@ const TestApp = () => {
 };
 
 const mockFB = {
-  init: vi.fn(),
-  login: vi.fn(),
-  api: vi.fn(),
+  init: jest.fn(),
+  login: jest.fn(),
+  api: jest.fn(),
 };
 
 describe("FacebookLoginButton", () => {
@@ -77,7 +77,7 @@ describe("FacebookLoginButton", () => {
       });
     });
 
-    const onSuccess = vi.fn();
+    const onSuccess = jest.fn();
 
     const { getByTestId } = render(
       <FacebookProvider appId="1234" version="v19.0">
@@ -104,7 +104,7 @@ describe("FacebookLoginButton", () => {
       }
     });
 
-    const onSuccess = vi.fn();
+    const onSuccess = jest.fn();
 
     const { getByTestId } = render(
       <FacebookProvider appId="1234" version="v19.0">

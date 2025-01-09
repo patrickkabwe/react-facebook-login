@@ -1,7 +1,7 @@
 import { act, render } from "@testing-library/react";
+import { beforeEach, describe, expect, it, jest } from "bun:test";
 import { JSDOM } from "jsdom";
 import React from "react";
-import { beforeEach, describe, expect, it, vi } from "vitest";
 import { FacebookProvider } from "../src";
 
 const TestApp = () => {
@@ -13,7 +13,7 @@ const TestApp = () => {
 };
 
 const mockFB = {
-  init: vi.fn(),
+  init: jest.fn(),
 };
 
 describe("FacebookProvider", () => {
