@@ -1,8 +1,12 @@
 import { renderHook } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, jest } from "bun:test";
 import { useFacebookLogin } from "../src";
+import { JSDOM } from "jsdom";
 
-console.log(window);
+const dom = new JSDOM("<!DOCTYPE html><html><body></body></html>");
+window = dom.window;
+globalThis.document = window.document;
+globalThis.window = window;
 
 describe("useFacebookLogin", () => {
   beforeEach(() => {
