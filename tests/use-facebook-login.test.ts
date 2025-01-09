@@ -1,15 +1,17 @@
 import { renderHook } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, jest } from "bun:test";
-import { useFacebookLogin } from "../src";
 import { JSDOM } from "jsdom";
+import { useFacebookLogin } from "../src";
 
-const dom = new JSDOM("<!DOCTYPE html><html><body></body></html>");
-window = dom.window;
-globalThis.document = window.document;
-globalThis.window = window;
 
 describe("useFacebookLogin", () => {
+  let window: Window & typeof globalThis;
+
   beforeEach(() => {
+    const dom = new JSDOM("<!DOCTYPE html><html><body></body></html>");
+    window = dom.window;
+    globalThis.document = window.document;
+    globalThis.window = window;
     window.FB = {
       init: jest.fn(),
       login: jest.fn().mockImplementation((cb) => {
