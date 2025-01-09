@@ -21,6 +21,7 @@ describe("useFacebookLogin", () => {
   });
 
   afterEach(() => {
+    // @ts-ignore
     delete window.FB;
   });
 
