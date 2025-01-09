@@ -1,33 +1,33 @@
 import { renderHook } from "@testing-library/react";
-import { afterAll, beforeEach, describe, expect, it,jest } from "bun:test";
+import { afterEach, beforeEach, describe, expect, it, jest } from "bun:test";
 import { useFacebookLogin } from "../src";
+
+console.log(window);
 
 describe("useFacebookLogin", () => {
   beforeEach(() => {
-    beforeEach(() => {
-      window.FB = {
-        init: jest.fn(),
-        login: jest.fn().mockImplementation((cb) => {
-          cb({ authResponse: { accessToken: "test" } });
-        }),
-      } as any;
-    });
+    window.FB = {
+      init: jest.fn(),
+      login: jest.fn().mockImplementation((cb) => {
+        cb({ authResponse: { accessToken: "test" } });
+      }),
+    } as any;
   });
-  afterAll(() => {
-    //  @ts-ignore
+
+  afterEach(() => {
     delete window.FB;
   });
 
   it("should return a function", () => {
     const { result } = renderHook(() =>
-      useFacebookLogin({ onSuccess: () => {} })
+      useFacebookLogin({ onSuccess: () => { } })
     );
     expect(result.current).toBeInstanceOf(Function);
   });
 
   it("should call FB.login", () => {
     const { result } = renderHook(() =>
-      useFacebookLogin({ onSuccess: () => {} })
+      useFacebookLogin({ onSuccess: () => { } })
     );
     const cb = result.current;
     cb();
@@ -48,7 +48,7 @@ describe("useFacebookLogin", () => {
   it("should call error callback", () => {
     const onError = jest.fn();
     const { result } = renderHook(() =>
-      useFacebookLogin({ onSuccess: () => {}, onError })
+      useFacebookLogin({ onSuccess: () => { }, onError })
     );
     const cb = result.current;
 
