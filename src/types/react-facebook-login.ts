@@ -1,28 +1,22 @@
-interface BaseFacebookLoginOptions {
-  scopes?: fb.UserField[];
-  onError?: (response: fb.StatusResponse) => void;
-}
+type Optional<T> = {
+    [P in keyof T]?: T[P];
+};
 
-export interface FacebookLoginWithUserProfile extends BaseFacebookLoginOptions {
-  shouldFetchUserProfile?: true;
-  onSuccess: (response: fb.UserResponse) => void;
-}
+interface UserResponse extends fb.StatusResponse, Optional<fb.UserResponse> { }
 
-export interface FacebookLoginWithoutUserProfile extends BaseFacebookLoginOptions {
-  shouldFetchUserProfile?: false;
-  onSuccess: (response: fb.StatusResponse) => void;
+export interface FacebookLoginOptions {
+    scopes?: fb.UserField[];
+    shouldFetchUserProfile?: boolean;
+    onError?: (response: fb.StatusResponse) => void;
+    onSuccess: (response: UserResponse) => void;
 }
-
-export type UseFacebookLoginOptions =
-  | FacebookLoginWithUserProfile
-  | FacebookLoginWithoutUserProfile;
 
 export type FacebookLoginProps = {
-  component?: React.ComponentType<
-    React.ButtonHTMLAttributes<HTMLButtonElement>
-  >;
-} & UseFacebookLoginOptions;
+    component?: React.ComponentType<
+        React.ButtonHTMLAttributes<HTMLButtonElement>
+    >;
+} & FacebookLoginOptions;
 
 export interface FacebookLoginContext {
-  loading: boolean;
+    loading: boolean;
 }

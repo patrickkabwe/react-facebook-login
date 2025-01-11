@@ -4,11 +4,11 @@
  * @see {@link https://developers.facebook.com/docs/graph-api/reference/user}
  */
 export const getUserProfile = (cb: (res: fb.UserResponse) => void) => {
-  return FB.api<fb.UserField>(
-    "/me",
-    { fields: ["name", "email", "picture" as any] },
-    (response) => {
-      cb(response);
-    }
-  );
+    return window.FB.api<fb.UserField>(
+        "/me",
+        { fields: ["name", "email", "picture"], },
+        (response) => {
+            cb(response);
+        }
+    );
 };
