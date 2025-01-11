@@ -6,7 +6,7 @@ import "./index.css";
 
 createRoot(document.getElementById("root")!).render(
     <StrictMode>
-        <FacebookProvider appId="1831097730701984">
+        <FacebookProvider appId="8781319378131312">
             <App />
         </FacebookProvider>
     </StrictMode>
