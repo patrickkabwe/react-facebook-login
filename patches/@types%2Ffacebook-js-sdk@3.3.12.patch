@@ -1,8 +1,8 @@
 diff --git a/index.d.ts b/index.d.ts
-index adcfd85c19896cb198932bb6a359beaaf366d92a..74a073932b00e52b923b6701ccbbc283041e552a 100644
+index adcfd85c19896cb198932bb6a359beaaf366d92a..b5b0464ccab5fcc2bb9919be7301cc6635854220 100644
 --- a/index.d.ts
 +++ b/index.d.ts
-@@ -21,6 +21,46 @@ declare namespace facebook {
+@@ -21,8 +21,49 @@ declare namespace facebook {
      > = TEvent extends "xfbl.render" ? () => void
          : (response: StatusResponse) => void;
  
@@ -48,8 +48,11 @@ index adcfd85c19896cb198932bb6a359beaaf366d92a..74a073932b00e52b923b6701ccbbc283
 +
      type UserField =
          | "id"
++        | "picture"
          | "about"
-@@ -104,7 +144,7 @@ declare namespace facebook {
+         | "age_range"
+         | "birthday"
+@@ -104,7 +145,7 @@ declare namespace facebook {
                  gender?: TParam extends "gender" ? string : never | undefined | undefined;
                  hometown?: TParam extends "hometown" ? Page : never | undefined | undefined;
                  inspirational_people?: TParam extends "inspirational_people" ? Experience[]
@@ -58,7 +61,7 @@ index adcfd85c19896cb198932bb6a359beaaf366d92a..74a073932b00e52b923b6701ccbbc283
                  install_type?: TParam extends "install_type" ? any : never | undefined | undefined;
                  is_guest_user?: TParam extends "is_guest_user" ? boolean : never | undefined | undefined;
                  languages?: TParam extends "languages" ? Experience[] : never | undefined | undefined;
-@@ -116,21 +156,21 @@ declare namespace facebook {
+@@ -116,21 +157,21 @@ declare namespace facebook {
                  name?: TParam extends "name" ? string : never | undefined | undefined;
                  name_format?: TParam extends "name_format" ? string : never | undefined | undefined;
                  payment_pricepoints?: TParam extends "payment_pricepoints" ? PaymentPricepoints
@@ -84,7 +87,7 @@ index adcfd85c19896cb198932bb6a359beaaf366d92a..74a073932b00e52b923b6701ccbbc283
                  video_upload_limits?: TParam extends "video_upload_limits" ? string : never | undefined | undefined;
                  website?: TParam extends "website" ? string : never | undefined | undefined;
              }) => void,
-@@ -379,10 +419,10 @@ declare namespace facebook {
+@@ -379,10 +420,10 @@ declare namespace facebook {
          data?: string | undefined;
          exclude_ids?: string[] | undefined;
          filters?:
@@ -99,7 +102,7 @@ index adcfd85c19896cb198932bb6a359beaaf366d92a..74a073932b00e52b923b6701ccbbc283
          max_recipients?: number | undefined;
          object_id?: string | undefined;
          suggestions?: string[] | undefined;
-@@ -428,12 +468,12 @@ declare namespace facebook {
+@@ -428,12 +469,12 @@ declare namespace facebook {
          display: "popup";
          method: "create_offer";
          objective:
@@ -118,7 +121,7 @@ index adcfd85c19896cb198932bb6a359beaaf366d92a..74a073932b00e52b923b6701ccbbc283
          page_id: string;
      }
  
-@@ -547,5 +587,5 @@ declare namespace facebook {
+@@ -547,5 +588,5 @@ declare namespace facebook {
          success: boolean;
      }
  
