@@ -74,6 +74,7 @@
         "@semantic-release/npm": "^12.0.1",
         "@semantic-release/release-notes-generator": "^14.0.3",
         "@semantic-release/commit-analyzer": "^13.0.1",
+        "@semantic-release/changelog": "^6.0.3",
         "@testing-library/jest-dom": "^6.4.2",
         "@testing-library/react": "^16.0.0",
         "@types/bun": "^1.1.16",
@@ -113,6 +114,12 @@
                 "@semantic-release/npm",
                 {
                     "npmPublish": true
+                }
+            ],
+            [
+                "@semantic-release/changelog",
+                {
+                    "changelogFile": "CHANGELOG.md"
                 }
             ]
         ]
