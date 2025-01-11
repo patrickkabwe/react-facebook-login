@@ -1,99 +1,112 @@
 {
-  "name": "@kazion/react-facebook-login",
-  "version": "0.1.9",
-  "description": "Facebook OAuth login  using the Facebook Javascript SDK",
-  "type": "commonjs",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "publishConfig": {
-    "access": "public"
-  },
-  "files": [
-    "dist"
-  ],
-  "scripts": {
-    "test": "vitest",
-    "build": "rimraf -rf dist && tsc -p tsconfig.json && tsup",
-    "dev": "tsup --watch",
-    "prerelease": "npm run build",
-    "audit:fix": "pnpm audit signatures --fix"
-  },
-  "homepage": "https://github.com/patrickkabwe/react-facebook-login",
-  "author": {
-    "name": "Patrick Kabwe",
-    "email": "patrickckabwe@gmail.com",
-    "url": "https://github.com/patrickkabwe"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/patrickkabwe/react-facebook-login"
-  },
-  "bugs": {
-    "url": "https://github.com/patrickkabwe/react-facebook-login/issues",
-    "email": "patrickckabwe@gmail.com"
-  },
-  "license": "MIT",
-  "peerDependencies": {
-    "react": ">=16.8.0",
-    "react-dom": ">=16.8.0"
-  },
-  "keywords": [
-    "react",
-    "reactjs",
-    "react-component",
-    "react-facebook-login",
-    "react-facebook",
-    "react-social-login",
-    "react-oauth",
-    "react-login",
-    "facebook-login",
-    "facebook-oAuth2",
-    "facebook-oAuth"
-  ],
-  "dependencies": {
-    "@types/facebook-js-sdk": "^3.3.12"
-  },
-  "devDependencies": {
-    "@semantic-release/git": "^10.0.1",
-    "@testing-library/jest-dom": "^6.4.2",
-    "@testing-library/react": "^16.0.0",
-    "@types/bun": "^1.1.16",
-    "@types/react": "^19.0.0",
-    "@vitejs/plugin-react": "^4.2.1",
-    "jsdom": "^25.0.0",
-    "rimraf": "^5.0.5",
-    "rollup": "^4.14.3",
-    "tsup": "^8.0.2",
-    "typescript": "^5.4.5"
-  },
-  "release": {
-    "branches": [
-      "main",
-      "next",
-      {
-        "name": "beta",
-        "prerelease": true
-      }
+    "name": "@kazion/react-facebook-login",
+    "version": "0.1.9",
+    "description": "Facebook OAuth login  using the Facebook Javascript SDK",
+    "type": "commonjs",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "module": "dist/index.mjs",
+    "publishConfig": {
+        "access": "public"
+    },
+    "files": [
+        "dist"
     ],
-    "plugins": [
-      "@semantic-release/commit-analyzer",
-      "@semantic-release/release-notes-generator",
-      [
-        "@semantic-release/git",
-        {
-          "assets": [
-            "package.json",
-            "lib/*",
-            "src/*"
-          ],
-          "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+    "exports": {
+        ".": {
+            "import": {
+                "types": "./dist/index.d.ts",
+                "default": "./dist/index.mjs"
+            },
+            "require": {
+                "types": "./dist/index.d.ts",
+                "default": "./dist/index.js"
+            }
         }
-      ],
-      "@semantic-release/github",
-      "@semantic-release/npm"
-    ]
-  },
-  "patchedDependencies": {
-    "@types/facebook-js-sdk@3.3.12": "patches/@types%2Ffacebook-js-sdk@3.3.12.patch"
-  }
+    },
+    "scripts": {
+        "test": "vitest",
+        "build": "rimraf -rf dist && tsc -p tsconfig.json && tsup",
+        "dev": "tsup --watch",
+        "prerelease": "npm run build",
+        "audit:fix": "pnpm audit signatures --fix"
+    },
+    "homepage": "https://github.com/patrickkabwe/react-facebook-login",
+    "author": {
+        "name": "Patrick Kabwe",
+        "email": "patrickckabwe@gmail.com",
+        "url": "https://github.com/patrickkabwe"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/patrickkabwe/react-facebook-login"
+    },
+    "bugs": {
+        "url": "https://github.com/patrickkabwe/react-facebook-login/issues",
+        "email": "patrickckabwe@gmail.com"
+    },
+    "license": "MIT",
+    "peerDependencies": {
+        "react": ">=16.8.0",
+        "react-dom": ">=16.8.0"
+    },
+    "keywords": [
+        "react",
+        "reactjs",
+        "react-component",
+        "react-facebook-login",
+        "react-facebook",
+        "react-social-login",
+        "react-oauth",
+        "react-login",
+        "facebook-login",
+        "facebook-oAuth2",
+        "facebook-oAuth"
+    ],
+    "dependencies": {
+        "@types/facebook-js-sdk": "^3.3.12"
+    },
+    "devDependencies": {
+        "@semantic-release/git": "^10.0.1",
+        "@testing-library/jest-dom": "^6.4.2",
+        "@testing-library/react": "^16.0.0",
+        "@types/bun": "^1.1.16",
+        "@types/react": "^19.0.0",
+        "@vitejs/plugin-react": "^4.2.1",
+        "jsdom": "^25.0.0",
+        "rimraf": "^5.0.5",
+        "rollup": "^4.14.3",
+        "tsup": "^8.0.2",
+        "typescript": "^5.4.5"
+    },
+    "release": {
+        "branches": [
+            "main",
+            "next",
+            {
+                "name": "beta",
+                "prerelease": true
+            }
+        ],
+        "plugins": [
+            "@semantic-release/commit-analyzer",
+            "@semantic-release/release-notes-generator",
+            [
+                "@semantic-release/git",
+                {
+                    "assets": [
+                        "package.json",
+                        "lib/*",
+                        "src/*"
+                    ],
+                    "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+                }
+            ],
+            "@semantic-release/github",
+            "@semantic-release/npm"
+        ]
+    },
+    "patchedDependencies": {
+        "@types/facebook-js-sdk@3.3.12": "patches/@types%2Ffacebook-js-sdk@3.3.12.patch"
+    }
 }
