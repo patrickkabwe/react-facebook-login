@@ -2,15 +2,14 @@ type Optional<T> = {
     [P in keyof T]?: T[P];
 };
 
+interface UserResponse extends fb.StatusResponse, Optional<fb.UserResponse> { }
+
 export interface FacebookLoginOptions {
     scopes?: fb.UserField[];
     shouldFetchUserProfile?: boolean;
     onError?: (response: fb.StatusResponse) => void;
     onSuccess: (response: UserResponse) => void;
 }
-
-type UserResponse = fb.StatusResponse & Optional<fb.UserResponse>
-
 
 export type FacebookLoginProps = {
     component?: React.ComponentType<
