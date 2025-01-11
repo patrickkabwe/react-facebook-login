@@ -41,7 +41,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/patrickkabwe/react-facebook-login"
+        "url": "git+https://github.com/patrickkabwe/react-facebook-login.git"
     },
     "bugs": {
         "url": "https://github.com/patrickkabwe/react-facebook-login/issues",

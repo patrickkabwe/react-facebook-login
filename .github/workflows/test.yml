@@ -64,9 +64,4 @@ jobs:
       - name: Some matrix version failed
         if: ${{ contains(needs.*.result, 'failure') }}
         run: exit 1
-      - name: Publish
-        run: bunx semantic-release
-        env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-            NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
