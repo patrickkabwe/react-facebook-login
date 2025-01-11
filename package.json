@@ -14,8 +14,7 @@
         "build": "rimraf -rf dist && tsc -p tsconfig.json && tsup",
         "dev": "tsup --watch",
         "prerelease": "npm run build",
-        "audit:fix": "pnpm audit signatures --fix",
-        "postversion": "cp -r package.json . && cp -r npm-shrinkwrap.json ."
+        "audit:fix": "pnpm audit signatures --fix"
     },
     "publishConfig": {
         "registry": "https://registry.npmjs.org/",
