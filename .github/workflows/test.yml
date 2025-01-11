@@ -1,9 +1,6 @@
 name: Test Coverage
 
 on:
-  release:
-    types: [prereleased, released]
-
   pull_request:
     branches: [main]
 
