@@ -56,7 +56,28 @@ const App = () => {
     console.log(response);
   };
 
-  return <FacebookLogin onSuccess={handleResponse} />;
+  return (
+    <FacebookLogin onSuccess={handleResponse} className="login-button" {...anyOtherButtonProps}>
+        Login
+    </FacebookLogin>
+);
+};
+
+export default App;
+```
+OR
+
+```javascript
+const App = () => {
+  const handleResponse = (response) => {
+    console.log(response);
+  };
+
+  return (
+    <FacebookLogin onSuccess={handleResponse} className="login-button" {...anyOtherButtonProps}>
+        <span>Login</span>
+    </FacebookLogin>
+);
 };
 
 export default App;
