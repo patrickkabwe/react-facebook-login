@@ -10,7 +10,6 @@
         "dist"
     ],
     "scripts": {
-        "test": "vitest",
         "build": "rimraf -rf dist && tsc -p tsconfig.json && tsup",
         "dev": "tsup --watch",
         "prerelease": "npm run build",

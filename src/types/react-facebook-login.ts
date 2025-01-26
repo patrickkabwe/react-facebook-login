@@ -12,10 +12,14 @@ export interface FacebookLoginOptions {
 }
 
 export type FacebookLoginProps = {
+    /**
+     * @deprecated Use `children` instead
+     * @example <FacebookLoginButton>Login with Facebook</FacebookLoginButton>
+     */
     component?: React.ComponentType<
         React.ButtonHTMLAttributes<HTMLButtonElement>
     >;
-} & FacebookLoginOptions;
+} & FacebookLoginOptions & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 export interface FacebookLoginContext {
     loading: boolean;

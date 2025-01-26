@@ -139,17 +139,30 @@ describe("FacebookLoginButton", () => {
         });
     });
 
-    it("should render custom component", () => {
+    it("should render text children as custom component", () => {
+        const { getByText } = render(
+            <FacebookProvider appId="1234" version="v19.0">
+                <FacebookLoginButton onSuccess={() => {}}>
+                    Custom Button
+                </FacebookLoginButton>
+            </FacebookProvider>
+        );
+
+        const button = getByText("Custom Button");
+        expect(button).toBeTruthy();
+        expect(button.textContent).toBe("Custom Button");
+    });
+
+    it("should render element children as custom component", () => {
         const CustomComponent = () => (
-            <button data-testid="custom-button">Custom Button</button>
+            <span data-testid="custom-button">Custom Button</span> // must be any other element than button
         );
 
         const { getByTestId } = render(
             <FacebookProvider appId="1234" version="v19.0">
-                <FacebookLoginButton
-                    onSuccess={() => {}}
-                    component={CustomComponent}
-                />
+                <FacebookLoginButton onSuccess={() => {}}>
+                    <CustomComponent />
+                </FacebookLoginButton>
             </FacebookProvider>
         );
 
