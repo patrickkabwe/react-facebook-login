@@ -57,7 +57,7 @@ const App = () => {
   };
 
   return (
-    <FacebookLogin onSuccess={handleResponse}>
+    <FacebookLogin onSuccess={handleResponse} className="login-button" {...anyOtherButtonProps}>
         Login
     </FacebookLogin>
 );
@@ -74,7 +74,7 @@ const App = () => {
   };
 
   return (
-    <FacebookLogin onSuccess={handleResponse}>
+    <FacebookLogin onSuccess={handleResponse} className="login-button" {...anyOtherButtonProps}>
         <span>Login</span>
     </FacebookLogin>
 );
