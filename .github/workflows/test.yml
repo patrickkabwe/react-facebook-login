@@ -28,7 +28,7 @@ jobs:
     timeout-minutes: 5
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - run: git config --global user.name github-actions
       - run: git config --global user.email github-actions@github.com
       
